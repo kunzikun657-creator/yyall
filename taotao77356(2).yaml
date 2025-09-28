@@ -1,28 +1,34 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: Rule
+log-level: info
+
 proxies:
-  # 新加坡 Trojan 节点
-  - name: "Singapore-Trojan"
+  # 替换后的 Trojan 节点（来自你提供的 JSON）
+  - name: "🇯🇵 DG日本1-3｜原生｜T"
     type: trojan
-    server: alibaba1.xn--z7x16bf6t.com
-    port: 33622
-    password: 407bff98-3a06-4dfa-ae1b-bc6cf220d684
+    server: agoogleyun3.xn--z7x16bf6t.com
+    port: 18229
+    password: 4c659753-8aa2-4bf0-8922-33501d5abc3b
     sni: g.alicdn.com
-    skip-cert-verify: true
+    skip-cert-verify: true   # 对应 allowInsecure: 1
     udp: true
 
-  # 日本 HTTP 静态 IP
+  # 日本 HTTP 静态 IP（保留你原来的）
   - name: "Japan-Static"
     type: http
-    server: 108.165.167.134
-    port: 1208
-    username: user275715
-    password: 4wujy9
+    server: 108.165.167.3
+    port: 5259
+    username: user262201
+    password: 71ia5j
 
 proxy-groups:
-  # 链式代理：新加坡 → 日本
+  # 链式代理：Trojan（日本） → 日本 HTTP 静态
   - name: "Final"
     type: relay
     proxies:
-      - "Singapore-Trojan"
+      - "🇯🇵 DG日本1-3｜原生｜T"
       - "Japan-Static"
 
 rules:
