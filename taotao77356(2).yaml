@@ -1,0 +1,29 @@
+proxies:
+  # 新加坡 Trojan 节点
+  - name: "Singapore-Trojan"
+    type: trojan
+    server: alibaba1.xn--z7x16bf6t.com
+    port: 33622
+    password: 407bff98-3a06-4dfa-ae1b-bc6cf220d684
+    sni: g.alicdn.com
+    skip-cert-verify: true
+    udp: true
+
+  # 日本 HTTP 静态 IP
+  - name: "Japan-Static"
+    type: http
+    server: 108.165.167.134
+    port: 1208
+    username: user275715
+    password: 4wujy9
+
+proxy-groups:
+  # 链式代理：新加坡 → 日本
+  - name: "Final"
+    type: relay
+    proxies:
+      - "Singapore-Trojan"
+      - "Japan-Static"
+
+rules:
+  - MATCH,Final
