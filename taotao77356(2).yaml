@@ -18,9 +18,9 @@ proxies:
   # 日本 HTTP 静态 IP（保留你原来的）
   - name: "Japan-Static"
     type: http
-    server: 108.165.167.
+    server: 108.165.167.3
     port: 5259
-    username: user26220
+    username: user262201
     password: 71ia5j
 
 proxy-groups:
@@ -33,6 +33,7 @@ proxy-groups:
 
 rules:
   - MATCH,Final
+
 
 
 
